@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var anunciosRouter = require('./routes/api/anuncios');
 const LoginController = require('./controllers/LoginController');
 const jwtAuthMiddleware = require('./lib/jwtAuthMiddleware');
+const i18n = require('./lib/i18nConfigure');
 
 // Conexión con BBDD
 require('./lib/connectMongoose');
@@ -30,11 +31,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// Idioma
+app.use(i18n.init);
 
 const loginController = new LoginController();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/change-locale', require('./routes/change-locale'));
 
 // API
 app.post('/api/authenticate', loginController.postAuthenticate);

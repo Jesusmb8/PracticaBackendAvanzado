@@ -1,1 +1,6 @@
-<h1>Welcome to nodepop</h1>
+<span>
+    <h1><%= __('Welcome to nodepop') %></h1>
+    <% getLocales().forEach(locale =>{ %>
+        <a href="/change-locale/<%= locale %>"><%= locale %></a>&nbsp;
+    <% })%>
+</span>
