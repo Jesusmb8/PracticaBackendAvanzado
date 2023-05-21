@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./head'); %> 
+</head>
+<body class="container">
+
+<header>
+    <%- include('./header'); %>
+</header>
+
+<main>
+    <h2>Anuncios</h2>
+    <form >
+        <div>
+            <input type="text" id="idArticulo" name="articulo"
+                class="search-box"
+                placeholder=" 🔍    Busque en nuestro catálogo">
+            <input type="submit" value="Buscar" class="search-button">
+        </div>
+      </form>
+    <div class="flex-container">
+        <% anuncios.forEach(anuncio => { %>
+            <div class="flex-element">
+                <p class="title"><%= anuncio.articulo %></p>
+                <img class="imagen" src="images/<%=anuncio.imagen%>">
+                <% if (anuncio.venta) { %>
+                    <p class="price " venta="<%= anuncio.venta %>"> Se vende <%= anuncio.precio %> €</p>
+                <% } else { %>
+                    <p class="price " venta="<%= anuncio.venta %>"> Se compra <%= anuncio.precio %> €</p>
+                 <% } %>
+                <div class="tag-box">
+                    <% anuncio.tags.forEach(tag => { %>
+                        <span class="tag"> <%= tag %></span>
+                    <% }) %>
+                </div> 
+            </div>
+        <% }) %>
+    </div>
+  
+</main>
+
+<footer>
+    <%- include('./footer'); %>
+</footer>
+
+</body>
+</html>
