@@ -1,6 +1,14 @@
 {
 	"Welcome to": "Welcome to",
 	"Welcome to nodepop": "Welcome to nodepop",
-	"Anuncios": "Anuncios",
-	"Click todos los anuncios": "Click todos los anuncios"
+	"Anuncios": "Advertisements",
+	"Click todos los anuncios": "Click to see all ads",
+	"busque en catalogo": " 🔍  Search our catalog",
+	"Buscar": "Look for",
+	"SeVende": "For Sale",
+	"SeCompra": "For Buy",
+	"mobile": "Mobile",
+	"motor": "Motor",
+	"work": "Work",
+	"lifestyle": "Lifestyle"
 }
