@@ -1,6 +1,16 @@
-<span>
-    <h1><%= __('Welcome to nodepop') %></h1>
+<span class="header">
+  <h1><%= __('Welcome to nodepop') %></h1>
+  <div>
     <% getLocales().forEach(locale =>{ %>
-        <a href="/change-locale/<%= locale %>"><%= locale %></a>&nbsp;
-    <% })%>
+    <a href="/change-locale/<%= locale %>">
+      <img
+        class="icon"
+        src="images/languageIcons/<%= locale %>.png"
+        alt="<%= __('IconoIdioma') %>"
+        title="<%= __('Cambio idioma') %>"
+      />
+      <!-- &nbsp; <%= locale %> -->
+    </a>
+    &nbsp; <% })%>
+  </div>
 </span>
