@@ -15,7 +15,7 @@ class LoginController {
         // Token
 
         const token = await jwt.sign({ _id: usuario._id }, process.env.JWT_SECRET, {
-          expiresIn: '1d',
+          expiresIn: '2d',
         });
 
         res.json({ jwt: token });

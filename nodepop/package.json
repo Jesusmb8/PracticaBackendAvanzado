@@ -5,10 +5,12 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "cross-env DEBUG=nodepop:* PORT=3030 nodemon ./bin/www",
+    "devMicroservice": "cross-env DEBUG=nodepop:* PORT=3030 nodemon ./bin/www & node thumbnail_microservice/thumbnailService.js",
     "inicializarBBDD": "node ./bin/inicializarBBDD"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cote": "^1.0.3",
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
@@ -19,6 +21,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.2",
     "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.20"
   }
 }
