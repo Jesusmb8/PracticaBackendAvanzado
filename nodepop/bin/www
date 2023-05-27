@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 require('dotenv').config();
+const fs = require('fs');
 
 var app = require('../app');
 var debug = require('debug')('nodepop:server');

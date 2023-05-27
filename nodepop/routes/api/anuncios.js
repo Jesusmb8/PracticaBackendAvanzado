@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 const upload = require('../../lib/uploadConfigure');
 const Anuncio = require('../../models/Anuncio');
-const { Requester } = require('cote');
+const thumbnailRequester = require('../../thumbnail_microservice/thumbnailRequester');
+const fs = require('fs');
 
 // Obtener todos
 router.get('/', async function (req, res, next) {
@@ -48,7 +49,7 @@ router.get('/', async function (req, res, next) {
       });
     } else {
       res.locals.anuncios = anuncios;
-      res.render('anuncios');
+      res.render('anuncios', { fs: fs });
     }
   } catch (error) {
     next(error);
@@ -60,19 +61,18 @@ router.post('/', upload.single('imagen'), async (req, res, next) => {
   // { articulo: 'iPhone 7 plus', tipo: 'Venta', precio: 200.22, imagen: 'iphone7plus.jpg', tags: 'mobile' },
 
   try {
-    const requester = new Requester({ name: 'aplicación' });
-    // const articulo = req.body.articulo;
-    // const tipo = req.body.tipo;
     const anuncioBody = req.body;
+    console.log('anuncioBody', anuncioBody);
+    // Llamamos al microservicio para el thumbnail
     const fileName = req.file.filename;
     const evento = {
-      type: 'crear-thumbnail',
+      type: thumbnailRequester.EVENT_TYPE,
       fileName: fileName,
     };
-    requester.send(evento, (resultado) => {
-      console.log(Date.now(), 'app obtiene resultado:', resultado);
+    thumbnailRequester.requester.send(evento, (resultado) => {
+      console.log(Date.now(), resultado);
     });
-    const anuncio = new Anuncio(anuncioBody);
+    const anuncio = new Anuncio({ imagen: fileName, ...anuncioBody });
     // Insertamos en BBDD
     const anuncioGuardado = await anuncio.save();
     res.json({
