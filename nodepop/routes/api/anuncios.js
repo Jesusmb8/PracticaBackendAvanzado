@@ -39,7 +39,6 @@ router.get('/', async function (req, res, next) {
       };
     }
 
-    console.log('Criteria', criteria);
     const anuncios = await Anuncio.query(criteria, start, limit, sort);
     // Comprobamos si es api o web
     if (req.originalUrl.startsWith('/api/')) {
@@ -62,7 +61,6 @@ router.post('/', upload.single('imagen'), async (req, res, next) => {
 
   try {
     const anuncioBody = req.body;
-    console.log('anuncioBody', anuncioBody);
     // Llamamos al microservicio para el thumbnail
     const fileName = req.file.filename;
     const evento = {

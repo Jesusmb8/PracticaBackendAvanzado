@@ -28,7 +28,7 @@
           <% const filePath = "public/data/thumbnails/thumbnail_" + anuncio.imagen; %>
           <!-- Ponemos el thumnail y sino existe la imagen -->
           <% if (fs.existsSync(filePath)){ %>
-          <img class="imagen" alt="thumbnail del anuncio" src="data/thumbnails/thumbnail_<%=anuncio.imagen%>" />
+          <img class="thumbnail" alt="thumbnail del anuncio" src="data/thumbnails/thumbnail_<%=anuncio.imagen%>" />
           <% } else { %>
           <img class="imagen" alt="imagen del anuncio" src="data/uploads/<%=anuncio.imagen%>" />
           <% } %>

@@ -67,6 +67,11 @@ p[venta=false] {
   height: 250px;
 }
 
+.thumbnail {
+  max-width: 250px;
+  max-height: 250px;
+}
+
 .search-box {
   width: 80%
 }

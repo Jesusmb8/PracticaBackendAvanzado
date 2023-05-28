@@ -14,9 +14,8 @@ responder.on('crear-thumbnail', async (req, done) => {
   // Read the image.
   const image = await jimp.read(folderOrigin + fileName);
 
-  // Resize the image to width 150 and auto height.
+  // Resize the image to width 100 and 100.
   image.resize(100, 100);
-  image.circle();
 
   // Save and overwrite the image
   await image.writeAsync(folderDestination + 'thumbnail_' + fileName);

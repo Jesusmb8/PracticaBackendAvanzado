@@ -60,6 +60,9 @@ La API ha sido generada utilizando express:
      - [http://localhost:3030/api/anuncios?articulo=Jor](http://localhost:3030/api/anuncios?articulo=Jor)
      - Nota, el filtro aplicará un contiene del texto, sin distinguir entre mayúsulas y minúsculas.
    - Todos los filtros y opciones pueden combinarse y se indicarán a través de query params.
+   - Para crear un anuncio utilizaremos los parámetros en modo form-data.
+     - [http://localhost:3030/api/anuncios] (http://localhost:3030/api/anuncios)
+     - Ejemplo de petición: ![](screenshosts/2023-05-28-16-14-50.png)
 
 5. Para acceder a la versión web:
 
@@ -71,7 +74,20 @@ La API ha sido generada utilizando express:
      - También todos los filtros, paginación y orden se podrán introducir en la query string de forma manual.
 
 6. La api está autenticada a través de JWT.
-   - Para solicitar el token:
+
+   - Para solicitar el token: http://localhost:3030/api/authenticate
+
+7. La web está internacionalizada, se puede consultar en inglés o español.
+
+8. Cuenta con un microservicio para crear thumbnails de las imágenes subidas.
+
+   - A modo de prueba se ha utliziado el paquete jimp.
+   - Será necesario levantar el microservicio de forma independiente para que funcione.
+   - Si existe thumbnail mostraremos este en la web, sino el que se haya subido sin modificar.
+
+   ```sh
+   npm run thumbnailService
+   ```
 
 **Notas**:
 
