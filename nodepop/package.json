@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "cross-env DEBUG=nodepop:* PORT=3030 nodemon ./bin/www",
-    "devMicroservice": "cross-env DEBUG=nodepop:* PORT=3030 nodemon ./bin/www & node thumbnail_microservice/thumbnailService.js",
+    "thumbnailService": "node thumbnail_microservice/thumbnailService.js",
     "inicializarBBDD": "node ./bin/inicializarBBDD"
   },
   "dependencies": {

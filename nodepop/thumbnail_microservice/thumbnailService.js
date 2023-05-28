@@ -20,5 +20,6 @@ responder.on('crear-thumbnail', async (req, done) => {
 
   // Save and overwrite the image
   await image.writeAsync(folderDestination + 'thumbnail_' + fileName);
+  console.log('Thumbnail generado ' + req.fileName);
   done('Respuesta: thumbnail_' + req.fileName);
 });
