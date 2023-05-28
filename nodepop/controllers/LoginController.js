@@ -6,7 +6,6 @@ class LoginController {
     try {
       //   Buscamos el usuario
       const { email, password } = req.body;
-      console.log('email', email);
       const usuario = await Usuario.findOne({ email: email });
 
       if (!usuario) {
