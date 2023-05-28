@@ -18,7 +18,7 @@ La API ha sido generada utilizando express:
    npm run inicializarBBDD
    ```
 
-   Nos lanzará un script que cargaré el fichero anuncios.json
+   Nos lanzará un script que cargaré el fichero anuncios.json y creará un usuario de prueba.
 
 3. Para levantar la api, instalamos las dependencias:
 
@@ -62,12 +62,16 @@ La API ha sido generada utilizando express:
    - Todos los filtros y opciones pueden combinarse y se indicarán a través de query params.
 
 5. Para acceder a la versión web:
+
    - Nodepop
      - [http://localhost:3030/](http://localhost:3030/)
    - Para acceder directamente al catálogo
      - [http://localhost:3030/anuncios](http://localhost:3030/anuncios)
      - Será posible filtrar por artículo.
      - También todos los filtros, paginación y orden se podrán introducir en la query string de forma manual.
+
+6. La api está autenticada a través de JWT.
+   - Para solicitar el token:
 
 **Notas**:
 
